@@ -7,7 +7,7 @@
         <div class="col items-center">
           <q-img
             class="q-ma-a"
-            src="../assets/Forum.png"
+            src="../assets/Logo5.png"
             spinner-color="white"
             style="
               height: 140px;
@@ -62,14 +62,18 @@
 
         <div class="col-12 col-sm-12 items-center" style="margin-left: 30%">
           <div>
-            <q-btn label="Ingresar" type="submit" color="primary" />
+            <q-btn
+              label="Ingresar"
+              type="submit"
+              color="primary"
+              to="/app"
+              exact
+            />
           </div>
         </div>
         <div style="margin-top: 10px">
           <span>Aun no formas parte de nosotros? </span>
-          <a href="http://www.htmlquick.com/" style="color: purple">
-            Registrate</a
-          >
+          <a href="#/register" style="color: purple"> Registrate</a>
         </div>
       </q-form>
     </div>
