@@ -70,7 +70,11 @@
             </q-banner>
 
             <div class="text-center col-lg-12 col-xs-12 self-center q-ma-none">
-              <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+              <q-form 
+              @submit="onSubmit" 
+              @reset="onReset" 
+              class="q-ma-none"
+              ref="myForm">
                 <q-input
                   maxlength="10"
                   :input-style="{ color: black }"
@@ -220,7 +224,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit" 
+                @reset="onReset" 
+                class="q-ma-none"
+                ref="myForm">
                   <q-input
                     maxlength="18"
                     :input-style="{ color: black }"
@@ -298,7 +306,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit" 
+                @reset="onReset" 
+                class="q-ma-none"
+                ref="myForm">
                   <q-input
                     maxlength="64"
                     :input-style="{ color: black }"
@@ -327,7 +339,7 @@
                     lazy-rules
                     :rules="[
                       (val) =>
-                        (val !== null && val !== '' && val.length == 13) ||
+                        (val !== null && val !== '' ) ||
                         'Porfavor no deje este campo vacio',
                     ]"
                   />
@@ -417,7 +429,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit" 
+                @reset="onReset" 
+                class="q-ma-none"
+                ref="myForm">
                   <q-input
                     maxlength="30"
                     :input-style="{ color: black }"
@@ -446,7 +462,7 @@
                     lazy-rules
                     :rules="[
                       (val) =>
-                        (val !== null && val !== '' && val.length == 13) ||
+                        (val !== null && val !== '') ||
                         'Porfavor no deje este campo vacio',
                     ]"
                   />
@@ -539,7 +555,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit"
+                 @reset="onReset" 
+                 class="q-ma-none"
+                 ref="myForm">
                   <q-input
                     maxlength="42"
                     :input-style="{ color: black }"
@@ -597,7 +617,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit"
+                 @reset="onReset" 
+                 class="q-ma-none"
+                 ref="myForm">
                   <q-input
                     maxlength="300"
                     :input-style="{ color: black }"
@@ -660,14 +684,18 @@
                   <q-icon name="badge" color="white" size="56px" />
                 </template>
                 <span class="text-h5 text-weight-bold">
-                  Certificado o Licencias</span
+                  Certificado o Licenciass</span
                 >
               </q-banner>
 
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit" 
+                @reset="onReset" 
+                class="q-ma-none"
+                ref="myForm">
                   <q-input
                     maxlength="50"
                     :input-style="{ color: black }"
@@ -675,8 +703,8 @@
                     standout="bg-deep-purple-1"
                     label-color="deep-purple-10"
                     filled
-                    hint="(Idioma,otro idioma)"
-                    v-model="lenguage"
+                    hint="(nombre de la certificacion)"
+                    v-model="name_certificacion"
                     label="Nombre"
                     lazy-rules
                     :rules="[
@@ -692,8 +720,8 @@
                     standout="bg-deep-purple-1"
                     label-color="deep-purple-10"
                     filled
-                    hint="(Idioma,otro idioma)"
-                    v-model="lenguage"
+                    hint="(nombre de la empresa)"
+                    v-model="name_empresa"
                     label="Empresa"
                     lazy-rules
                     :rules="[
@@ -741,7 +769,7 @@
                     standout="bg-deep-purple-1 text-black"
                     label-color="deep-purple-10"
                     label="Fecha de caducidad"
-                    v-model="empleei_date"
+                    v-model="empleef_date"
                     mask="date"
                     :rules="['empleei_date']"
                   >
@@ -774,8 +802,7 @@
                     standout="bg-deep-purple-1"
                     label-color="deep-purple-10"
                     filled
-                    hint="(Idioma,otro idioma)"
-                    v-model="lenguage"
+                    v-model="id_credencial"
                     label="ID de la credencial"
                     lazy-rules
                     :rules="[
@@ -791,8 +818,7 @@
                     standout="bg-deep-purple-1"
                     label-color="deep-purple-10"
                     filled
-                    hint="(Idioma,otro idioma)"
-                    v-model="lenguage"
+                    v-model="url_credencial"
                     label="URL de la credencial"
                     lazy-rules
                     :rules="[
@@ -823,7 +849,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit"
+                 @reset="onReset" 
+                 class="q-ma-none"
+                 ref="myForm">
                   <q-btn
                     align="around"
                     class="btn-fixed-width"
@@ -1046,7 +1076,11 @@
             </q-banner>
 
             <div class="text-center col-lg-12 col-xs-12 self-center q-ma-none">
-              <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+              <q-form 
+              @submit="onSubmit" 
+              @reset="onReset" 
+              class="q-ma-none"
+              ref="myForm">
                 <q-input
                   maxlength="10"
                   :input-style="{ color: black }"
@@ -1064,22 +1098,7 @@
                   ]"
                 />
 
-                <q-input
-                  maxlength="10"
-                  :input-style="{ color: black }"
-                  color="primary"
-                  standout="bg-deep-purple-1"
-                  label-color="deep-purple-10"
-                  filled
-                  v-model="name"
-                  label="Nombre o razon social"
-                  lazy-rules
-                  :rules="[
-                    (val) =>
-                      (val && val.length > 0) ||
-                      'Porfavor escribe un nombre valido',
-                  ]"
-                />
+                
 
                 <q-input
                   maxlength="12"
@@ -1088,7 +1107,7 @@
                   standout="bg-deep-purple-1"
                   label-color="deep-purple-10"
                   type="RFC"
-                  v-model="cp"
+                  v-model="rfc"
                   label="RFC"
                   lazy-rules
                   :rules="[
@@ -1144,7 +1163,11 @@
               <div
                 class="text-center col-lg-12 col-xs-12 self-center q-ma-none"
               >
-                <q-form @submit="onSubmit" @reset="onReset" class="q-ma-none">
+                <q-form 
+                @submit="onSubmit"
+                 @reset="onReset" 
+                 class="q-ma-none"
+                 ref="myForm">
                   <q-btn
                     align="around"
                     class="btn-fixed-width"
@@ -1383,8 +1406,35 @@ export default {
     const mail = ref(null);
     const age = ref(null);
     const accept = ref(false);
-
+    const myForm = ref(null)
+    const registro_json= ref({});
+    const registro=ref([]);
+    const validacion_json= ref({});
+    const validacion=ref([]);
+    const name_empresa=ref(null);
+    const id_credencial=ref(null);
+    const url_credencial=ref(null);
+    const name_certificacion=ref(null);
+    const agedate=ref(null);
+    const sexo=ref(null);
+    const educationi_date=ref(null);
+    const educationf_date=ref(null);
+    const empleei_date=ref(null);
+    const empleef_date=ref(null);
+   const min = Math.ceil(1000);
+   const max = Math.floor(10000);
+const contraseña=ref( Math.floor(Math.random()* (max - min) + min));
+const prueba=ref(null)
     return {
+      
+  contraseña,
+      name_certificacion,
+      name_empresa,
+      id_credencial,
+      url_credencial,
+      myForm,
+      registro,
+      registro_json,
       user1,
       user,
       img_perfil,
@@ -1421,12 +1471,13 @@ export default {
       lorem:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.",
       onSubmit() {
-        if (accept.value !== true) {
+       
+        if (accept.value !== true ){
           $q.notify({
             color: "red-5",
             textColor: "white",
             icon: "warning",
-            message: "You need to accept the license and terms first",
+            message: "You need to accept the license and terms",
           });
         } else {
           $q.notify({
@@ -1435,7 +1486,54 @@ export default {
             icon: "cloud_done",
             message: "Submitted",
           });
+
+          
+
+          registro.value =[...registro.value,{
+          name: name.value,
+          age: age.value,
+          cp: cp.value,
+          tel: tel.value,
+          sexo: sexo.value,
+          agedate : agedate.value, 
+          curp: curp.value,
+          rfc: rfc.value,
+          institucion: institucion.value,
+          titulo: titulo.value,
+          educationi_date: educationi_date.value,
+          educationf_date: educationf_date.value,
+          cargo: cargo.value,
+          empresa: empresa.value,
+          empleei_date: empleei_date.value,
+          empleef_date: empleef_date.value,
+          nameref: nameref.value,
+          telref: telref.value,
+          about: about.value,
+          lenguage: lenguage.value,
+          name_empresa: name_empresa.value,
+          empleei_date: empleei_date.value,
+          empleef_date: empleef_date.value,
+          id_credencial: id_credencial.value,
+          url_credencial: url_credencial.value,   
+
+          }]
+
+
+
+
+          validacion.value =[...validacion.value,{
+       mail:mail.value,
+       contraseña:name.value+ contraseña.value + age.value
+          }]
+
+          registro_json.value=JSON.stringify(registro.value)
+          console.log(registro_json)
+
+          validacion_json.value=JSON.stringify(validacion.value)
+          console.log(validacion_json)
         }
+
+      
       },
 
       onReset() {
