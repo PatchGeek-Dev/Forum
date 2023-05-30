@@ -1421,12 +1421,13 @@ export default {
     const educationf_date=ref(null);
     const empleei_date=ref(null);
     const empleef_date=ref(null);
+    const model2=ref(null);
    const min = Math.ceil(1000);
    const max = Math.floor(10000);
 const contraseña=ref( Math.floor(Math.random()* (max - min) + min));
 const prueba=ref(null)
     return {
-      
+      model2,
   contraseña,
       name_certificacion,
       name_empresa,
@@ -1451,7 +1452,7 @@ const prueba=ref(null)
       rfcpatachment,
       rfc,
       curp,
-      model2: ref(null),
+      
       options2: ["Farmacia", "Software", "Optica", "Restaurante", "Médico"],
       basic: ref(false),
       sexo: ref("Masculino"),
@@ -1472,12 +1473,24 @@ const prueba=ref(null)
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.",
       onSubmit() {
        
-        if (accept.value !== true ){
+        
+       if(user.value){
+        if (accept.value !== true || name.value == null || name.value.length <= 0 || age.value == null || age.value.length <= 0||
+         cp.value == null || cp.value.length <= 0|| tel.value == null || tel.value.length <= 0
+        || mail.value == null || mail.value.length <= 0 || curp.value == null || curp.value.length <= 0 || rfc.value == null || rfc.value.length <= 0
+        || institucion.value == null || institucion.value.length <= 0 || titulo.value == null  || titulo.value.length <= 0 
+         || cargo.value == null   || cargo.value.length <= 0 || empresa.value == null  || empresa.value.length <= 0 ||
+          nameref.value == null  || nameref.value.length <= 0 || telref.value == null || telref.value.length <= 0
+          || about.value == null  || about.value.length <= 0 || lenguage.value == null || lenguage.value.length <= 0 
+          || name_empresa.value == null  || name_empresa.value.length <= 0 || id_credencial.value == null || id_credencial.value.length <= 0
+          || url_credencial.value == null || url_credencial.value.length <= 0
+        ){
+          
           $q.notify({
             color: "red-5",
             textColor: "white",
             icon: "warning",
-            message: "You need to accept the license and terms",
+            message: "LLena todos los datos",
           });
         } else {
           $q.notify({
@@ -1486,8 +1499,6 @@ const prueba=ref(null)
             icon: "cloud_done",
             message: "Submitted",
           });
-
-          
 
           registro.value =[...registro.value,{
           name: name.value,
@@ -1531,9 +1542,79 @@ const prueba=ref(null)
 
           validacion_json.value=JSON.stringify(validacion.value)
           console.log(validacion_json)
+
+          
         }
 
-      
+      } 
+     
+
+      if(!user.value){
+        if (accept.value !== true || name.value == null || name.value.length <= 0  || rfc.value == null || rfc.value.length <= 0
+        || mail.value == null || mail.value.length <= 0 || model2.value == null ){
+          $q.notify({
+            color: "red-5",
+            textColor: "white",
+            icon: "warning",
+            message: "llena todos los datos",
+          });
+        } else {
+          $q.notify({
+            color: "green-4",
+            textColor: "white",
+            icon: "cloud_done",
+            message: "Submitted",
+          });
+
+          registro.value =[...registro.value,{
+          name: name.value,
+          age: age.value,
+          cp: cp.value,
+          tel: tel.value,
+          sexo: sexo.value,
+          agedate : agedate.value, 
+          curp: curp.value,
+          rfc: rfc.value,
+          institucion: institucion.value,
+          titulo: titulo.value,
+          educationi_date: educationi_date.value,
+          educationf_date: educationf_date.value,
+          cargo: cargo.value,
+          empresa: empresa.value,
+          empleei_date: empleei_date.value,
+          empleef_date: empleef_date.value,
+          nameref: nameref.value,
+          telref: telref.value,
+          about: about.value,
+          lenguage: lenguage.value,
+          name_empresa: name_empresa.value,
+          empleei_date: empleei_date.value,
+          empleef_date: empleef_date.value,
+          id_credencial: id_credencial.value,
+          url_credencial: url_credencial.value,   
+
+          }]
+
+
+
+
+          validacion.value =[...validacion.value,{
+       mail:mail.value,
+       contraseña:name.value+ contraseña.value + age.value
+          }]
+
+          registro_json.value=JSON.stringify(registro.value)
+          console.log(registro_json)
+
+          validacion_json.value=JSON.stringify(validacion.value)
+          console.log(validacion_json)
+
+          
+        }
+
+      } 
+     
+
       },
 
       onReset() {
